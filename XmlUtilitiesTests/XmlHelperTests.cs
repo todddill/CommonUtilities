@@ -1,7 +1,6 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 using System.Xml;
-using System.Xml.Serialization;
+using CommonUtilitiesTestHelper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using XmlUtilities;
 
@@ -14,7 +13,8 @@ namespace XmlUtilitiesTests
         {
             Doors = 4,
             Wheels = "22 inch",
-            Windows = "Tinted"
+            Windows = "Tinted",
+            Engine = Engine.V6
         };
 
         [TestMethod]
@@ -51,19 +51,5 @@ namespace XmlUtilitiesTests
             Vehicle actual = XmlHelper.Deserialize<Vehicle>(xml);
             Assert.IsTrue(actual.Doors == 4);
         }
-    }
-
-    [Serializable]
-    [XmlRoot("Vehicle")]
-    public class Vehicle
-    {
-        [XmlElement(IsNullable=true)]
-        public string Wheels { get; set; }
-
-        [XmlElement(IsNullable = true)]
-        public string Windows { get; set; }
-
-        [XmlElement]
-        public int Doors { get; set; }
     }
 }
