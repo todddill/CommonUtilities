@@ -106,5 +106,16 @@ namespace XmlUtilities
                 return (T)serializer.Deserialize(stream);
             }
         }
+
+        public static T Deserialize<T>(string xml, Encoding encoding, XmlRootAttribute xmlRoot)
+        {
+            if (string.IsNullOrEmpty(xml)) return default(T);
+
+            using (MemoryStream stream = new MemoryStream(encoding.GetBytes(xml)))
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(T), xmlRoot);
+                return (T)serializer.Deserialize(stream);
+            }
+        }
     }
 }

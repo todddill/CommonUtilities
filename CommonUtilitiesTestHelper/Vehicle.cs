@@ -4,6 +4,13 @@ using System.Xml.Serialization;
 namespace CommonUtilitiesTestHelper
 {
     [Serializable]
+    [XmlRoot("Truck")]
+    public class Truck : Vehicle
+    {
+        public DriveTrain DriveTrain { get; set; }
+    }
+    
+    [Serializable]
     [XmlRoot("Vehicle")]
     public class Vehicle
     {
@@ -35,5 +42,19 @@ namespace CommonUtilitiesTestHelper
 
         [XmlEnum]
         V8
+    }
+
+    [Serializable]
+    [XmlType]
+    public enum DriveTrain
+    {
+        [XmlEnum]
+        FourWheelDrive,
+
+        [XmlEnum]
+        TwoWheelDrive,
+
+        [XmlEnum]
+        AllWheelDrive
     }
 }
