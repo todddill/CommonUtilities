@@ -1,15 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace DomainUtilities
 {
     public class FullNameParser
     {
+        /// <summary>
+        /// Parses the specified full name.
+        /// </summary>
+        /// <param name="fullName">The full name.</param>
+        /// <returns></returns>
+        /// <exception cref="System.ArgumentException">Cannot parse name supplied.  Provide a valid space separated full name.;fullname</exception>
         public static Name Parse(string fullName)
         {
             Name name = new Name();

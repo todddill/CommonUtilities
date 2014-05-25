@@ -81,7 +81,7 @@ namespace XmlUtilities
         /// <summary>
         /// Deserializes the specified XML.
         /// </summary>
-        /// <typeparam name="T">They object type to which the xml will be transformed</typeparam>
+        /// <typeparam name="T">The object type to which the xml will be transformed</typeparam>
         /// <param name="xml">The XML.</param>
         /// <returns>Typed object</returns>
         public static T Deserialize<T>(string xml)
@@ -92,7 +92,7 @@ namespace XmlUtilities
         /// <summary>
         /// Deserializes the specified XML.
         /// </summary>
-        /// <typeparam name="T">They object type to which the xml will be transformed</typeparam>
+        /// <typeparam name="T">The object type to which the xml will be transformed</typeparam>
         /// <param name="xml">The XML.</param>
         /// <param name="encoding">The encoding to use for deserialization.</param>
         /// <returns>Typed object</returns>
@@ -107,6 +107,14 @@ namespace XmlUtilities
             }
         }
 
+        /// <summary>
+        /// Deserializes the specified XML.
+        /// </summary>
+        /// <typeparam name="T">The object type to which the xml will be transformed</typeparam>
+        /// <param name="xml">The XML.</param>
+        /// <param name="encoding">The encoding to use for deserialization.</param>
+        /// <param name="xmlRoot">The XML root element to use.</param>
+        /// <returns>Typed object</returns>
         public static T Deserialize<T>(string xml, Encoding encoding, XmlRootAttribute xmlRoot)
         {
             if (string.IsNullOrEmpty(xml)) return default(T);
