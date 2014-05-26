@@ -8,7 +8,7 @@ using XmlUtilities;
 namespace XmlUtilitiesTests
 {
     [TestClass]
-    public class XmlHelperTests
+    public class XmlSerializationHelperTests
     {
         private Vehicle _vehicle = new Vehicle
         {
@@ -21,7 +21,7 @@ namespace XmlUtilitiesTests
         [TestMethod]
         public void SerializeObjectToXmlString()
         {
-            string xml = XmlHelper.Serialize<Vehicle>(_vehicle);
+            string xml = XmlSerializatioHelper.Serialize<Vehicle>(_vehicle);
             Assert.IsTrue(xml.Contains("<Wheels>22 inch</Wheels>"));
         }
 
@@ -33,7 +33,7 @@ namespace XmlUtilitiesTests
                 OmitXmlDeclaration = true
             };
 
-            string xml = XmlHelper.Serialize<Vehicle>(_vehicle, settings);
+            string xml = XmlSerializatioHelper.Serialize<Vehicle>(_vehicle, settings);
             Assert.IsFalse(xml.Contains("﻿<?xml version=\"1.0\" encoding=\"utf-16\"?>"));
         }
 
@@ -47,9 +47,9 @@ namespace XmlUtilitiesTests
                 Encoding = Encoding.UTF8
             };
 
-            string xml = XmlHelper.Serialize<Vehicle>(_vehicle, settings, new MemoryStreamHelper());
+            string xml = XmlSerializatioHelper.Serialize<Vehicle>(_vehicle, settings, new MemoryStreamHelper());
 
-            Vehicle actual = XmlHelper.Deserialize<Vehicle>(xml);
+            Vehicle actual = XmlSerializatioHelper.Deserialize<Vehicle>(xml);
             Assert.IsTrue(actual.Doors == 4);
         }
 
@@ -63,7 +63,7 @@ namespace XmlUtilitiesTests
                 Encoding = Encoding.UTF8
             };
 
-            string xml = XmlHelper.Serialize<Vehicle>(_vehicle, settings, new MemoryStreamHelper());
+            string xml = XmlSerializatioHelper.Serialize<Vehicle>(_vehicle, settings, new MemoryStreamHelper());
 
             XmlRootAttribute root = new XmlRootAttribute { 
                 DataType = "Truck",
@@ -71,7 +71,7 @@ namespace XmlUtilitiesTests
                 IsNullable = false
             };
 
-            Truck actual = XmlHelper.Deserialize<Truck>(xml, Encoding.Unicode, root);
+            Truck actual = XmlSerializatioHelper.Deserialize<Truck>(xml, Encoding.Unicode, root);
             Assert.IsTrue(actual.DriveTrain == default(DriveTrain));
         }
     }

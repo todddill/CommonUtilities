@@ -42,7 +42,8 @@
   <ItemGroup>
     <Compile Include="ConfigurationManagerHelper.cs" />
     <Compile Include="MemoryStreamHelper.cs" />
-    <Compile Include="XmlHelper.cs" />
+    <Compile Include="XmlSecurityHelper.cs" />
+    <Compile Include="XmlSerializatioHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -52,7 +52,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ConfigurationManagerHelperTests.cs" />
-    <Compile Include="XmlHelperTests.cs" />
+    <Compile Include="XmlSecurityHelperTest.cs" />
+    <Compile Include="XmlSerializationHelperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
