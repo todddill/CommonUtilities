@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SQLUtilities", "SQLUtilities\SQLUtilities.sqlproj", "{735567E9-B1AE-4C06-AB2B-B0AF92D07375}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfIntegrationPattern", "WcfIntegrationPattern\WcfIntegrationPattern.csproj", "{5A3413A7-9211-48B2-8061-05B538828C15}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{735567E9-B1AE-4C06-AB2B-B0AF92D07375}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{735567E9-B1AE-4C06-AB2B-B0AF92D07375}.Release|Any CPU.Build.0 = Release|Any CPU
 		{735567E9-B1AE-4C06-AB2B-B0AF92D07375}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{5A3413A7-9211-48B2-8061-05B538828C15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A3413A7-9211-48B2-8061-05B538828C15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A3413A7-9211-48B2-8061-05B538828C15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A3413A7-9211-48B2-8061-05B538828C15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
