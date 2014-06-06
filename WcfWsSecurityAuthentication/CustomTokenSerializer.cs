@@ -24,8 +24,9 @@ namespace WcfWsSecurityAuthentication
             writer.WriteRaw(string.Format(
             "<{0}:UsernameToken {1}:Id=\"" + securityToken.Id +
             "\" xmlns:{1}=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\">" +
+            " xmlns:{0}=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\">" +
             "<{0}:Username>" + token.UserName + "</{0}:Username>" +
-            "<{0}:Password Type=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText\">" +
+            "<{0}:Password {0}:Type=\"" +_settings.PasswordType  + "\">" +
             _settings.GetPassword(token.Password, true) + "</{0}:Password>" +
             "<{0}:Nonce EncodingType=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary\">" +
             _settings.Nonce + "</{0}:Nonce>" +

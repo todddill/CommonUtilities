@@ -16,14 +16,17 @@ namespace WcfWsSecurityAuthentication
 
         public string TokenElementNamespace { get; set; }
 
+        public string PasswordType { get; private set; }
+
         public string CreatedDate { get; set; }
 
         public CustomTokenSerializerSettings()
         {
             TokenNamespace = "wss";
             TokenElementNamespace = "wsu";
-            CreatedDate = DateTime.Now.ToString("yyyy-MM-ddThh:mm:ss.fffZ");
+            CreatedDate = DateTime.UtcNow.ToString("yyyy-MM-ddThh:mm:ss.fffZ");
             SecurityVersion = SecurityVersion.WSSecurity11;
+            PasswordType = "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText";
         }
 
         public string Nonce
@@ -55,7 +58,11 @@ namespace WcfWsSecurityAuthentication
         {
             if (!string.IsNullOrEmpty(password))
             {
-                if (usePasswordDigest) return GetPasswordDigest(new List<string> { CreatedDate, Nonce, password }.ToArray());
+                if (usePasswordDigest)
+                {
+                    PasswordType = "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#Digest";
+                    return GetPasswordDigest(new List<string> { CreatedDate, Nonce, password }.ToArray());
+                }
             }
 
             return password;
