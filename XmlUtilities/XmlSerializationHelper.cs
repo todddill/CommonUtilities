@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 
 namespace XmlUtilities
 {
-    public static class XmlSerializatioHelper
+    public static class XmlSerializationHelper
     {
         /// <summary>
         /// Serializes the specified object using Unicode encoding
